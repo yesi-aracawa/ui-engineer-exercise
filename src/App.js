@@ -1,5 +1,8 @@
 import React from "react";
+import People from './views/People';
 
 export const App = () => {
-  return <>{/* YOUR CODE GOES HERE */}</>;
+  return (<>
+    <People/>
+  </>);
 };
