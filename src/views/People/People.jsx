@@ -9,12 +9,7 @@ const PeopleNav = styled.div`
   height: 50px;
   width: 100%;
   border-radius: 0px;
-
-  position: absolute;
-  left: 60px;
-  right: 0px;
-  top: 60px;
-  bottom: 0px;
+  margin: 0  0 10px 0;
 
   background: ${getColor('white')};
   box-shadow: inset 0px -1px 0px ${getColor('greyLightest')};
@@ -25,7 +20,6 @@ const PeopleBoard = styled.div`
   background-color: ${getColor('greyLightest')};
 `;
 const PageTitle = styled.div`
-  position: absolute;
   width: 62px;
   height: 18px;
   left: 0px;
@@ -38,14 +32,21 @@ const PageTitle = styled.div`
   line-height: 18px;
   color: ${getColor('greyDarkest')};
 `;
+const PeopleBoardSections =styled.div`
+  display: flex;
+`;
 
 function People() {
   return (
     <PeopleBoard>
-      <PeopleNav><PageTitle>People</PageTitle></PeopleNav>
-      <BusinessInfo/>
-      <ActivityInfo/>
-      <AdditionalInfo/>
+      <PeopleNav>
+        <PageTitle>People</PageTitle>
+      </PeopleNav>
+      <PeopleBoardSections>
+        <BusinessInfo/>
+        <ActivityInfo/>
+        <AdditionalInfo/>
+      </PeopleBoardSections>
     </PeopleBoard>
   );
 
