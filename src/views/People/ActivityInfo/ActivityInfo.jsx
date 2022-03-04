@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from "styled-components";
 import { getColor } from "../../../_starter/theme/theme";
 import { default as ChevronSmDownIcon } from "../../../_starter/shared/Icons/ChevronSmDown";
 import { default as PhoneIcon } from "../../../_starter/shared/Icons/Phone";
 import { default as PlusIcon } from "../../../_starter/shared/Icons/Plus";
+import { default as VoicemailIcon } from "../../../_starter/shared/Icons/Voicemail";
+import { default as PaperPlaneIcon } from "../../../_starter/shared/Icons/PaperPlane";
+import { default as ReplyIcon } from "../../../_starter/shared/Icons/Reply";
+import { default as RocketIcon } from "../../../_starter/shared/Icons/Rocket";
+import { default as BadgeIcon } from "../../../_starter/shared/Icons/Badge";
+import { pastActivitiesUrl, upcommingActivitiesUrl} from "../../../_starter/shared/API/baseUrls";
 
 const ActivityDetailButtons = styled.div`
   display: flex;
@@ -83,6 +89,29 @@ const LogActivityLink = styled.a`
 
 function ActivityInfo() {
   const [active, setActive] = useState(0);
+  const [pastActivities,setPastActivities]=useState([]);
+
+  const fetchPastActivities=()=>{
+    fetch(pastActivitiesUrl
+    ,{
+      headers : { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+       }
+    }
+    )
+      .then(function(response){
+        return response.json();
+      })
+      .then(function(myJson) {
+        setPastActivities(myJson)
+      });
+  }
+
+  useEffect(()=>{
+    fetchPastActivities();
+  },[])
+
   const handleClick = e => {
     const index = parseInt(e.target.id, 0);
     if (index !== active) {
@@ -116,10 +145,42 @@ function ActivityInfo() {
             <BtnTitle>Add a Note</BtnTitle>
           </LogActivityLink>
         </ActivityDetailButtons>
-        <h2>Upcoming Activities</h2>
-        <p></p>
-        <h2>Past Activities</h2>
-        <div></div>
+        <h3>Upcoming Activities</h3>
+          <p>Once actions are scheduled, they'll appear here</p>
+        <h3>Past Activities</h3>
+        <div className='pastActivities'>
+          {pastActivities.data?.map(item => 
+            <div className='activityItem' key={item.id}>
+              {item.type === 'voicemail'? 
+                <div className='Icon'>
+                  <VoicemailIcon></VoicemailIcon>
+                </div>
+                : item.type === 'success' ?
+                  <BadgeIcon></BadgeIcon>
+                : item.type === 'call' ?
+                  <PhoneIcon></PhoneIcon>
+                : item.type === 'sent_email' ?
+                  <PaperPlaneIcon></PaperPlaneIcon>
+                : item.type === 'email_reply' ?
+                  <ReplyIcon></ReplyIcon>
+                : <RocketIcon></RocketIcon>
+              }
+              <div className='activityDetails'>
+                <div>
+                  <p></p>
+                  <p></p>
+                </div>
+                <div>
+                  <div></div>
+                  <div></div>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+        <div>
+
+        </div>
       </TabPanel>
       <TabPanel active={active === 1} ></TabPanel>
       <TabPanel active={active === 2} ></TabPanel>

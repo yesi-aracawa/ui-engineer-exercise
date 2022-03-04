@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState }  from 'react';
 import styled from "styled-components";
 import { getColor } from "../../../_starter/theme/theme";
 import { default as CloudIcon } from "../../../_starter/shared/Icons/Cloud";
 import { default as LinkedInIcon } from "../../../_starter/shared/Icons/LinkedIn";
 import { default as TwitterIcon } from "../../../_starter/shared/Icons/Twitter";
 import { default as LinkIcon } from "../../../_starter/shared/Icons/Link";
+import { default as StarOutlinedIcon } from "../../../_starter/shared/Icons/StarOutlined";
+import { default as EllipsisHorizontalIcon } from "../../../_starter/shared/Icons/EllipsisHorizontal";
+//import { fetchPeopleData } from "../../../_starter/shared/API/Actions";
+import {peopleUrl} from "../../../_starter/shared/API/baseUrls";
+
 
 
 const BussinessCard = styled.div`
@@ -57,22 +62,52 @@ const BusinessContainer = styled.div`
 `;
 
 function BusinessInfo() {
+  const [businessInfo,setBusinessInfo]=useState([]);
+  const fetchPeopleData=()=>{
+    fetch(peopleUrl
+    ,{
+      headers : { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+       }
+    }
+    )
+      .then(function(response){
+        return response.json();
+      })
+      .then(function(myJson) {
+        setBusinessInfo(myJson)
+      });
+  }
+  useEffect(()=>{
+    fetchPeopleData();
+  },[])
+
   return (
+    
     <BusinessContainer>
       <BussinessCard>
         <BussinessCardHeader>
-          <span></span>
-          <span></span>
+          <StarOutlinedIcon></StarOutlinedIcon>
+          <EllipsisHorizontalIcon></EllipsisHorizontalIcon>
         </BussinessCardHeader>
         <BusinessCardBody>
-          <h1>Gary Glover</h1>
-          <h3>Marketing Manager</h3>
-          <a href="#">Facebook</a>
+          <div>
+            <label>{businessInfo.display_name}</label>
+            <p>{businessInfo.title}</p>
+            <a href={`https://www.facebook.com/${businessInfo.person_company_name}`}>Facebook</a>
+          </div>
           <SocialIcons>
-            <CloudIcon></CloudIcon>
-            <LinkedInIcon></LinkedInIcon>
-            <TwitterIcon></TwitterIcon>
-            <LinkIcon></LinkIcon>
+            <a><CloudIcon></CloudIcon></a>
+            <a href={businessInfo.linkedin_url} target='_blank' rel='noreferrer'>
+              <LinkedInIcon></LinkedInIcon>
+            </a>
+            <a href={`https://twitter.com/${businessInfo.twitter_handle}`} target='_blank' rel='noreferrer'>
+              <TwitterIcon></TwitterIcon>
+            </a>
+            <a href={businessInfo.personal_website} target='_blank' rel='noreferrer'>
+              <LinkIcon></LinkIcon>
+            </a>
           </SocialIcons>
         </BusinessCardBody>
       </BussinessCard>
