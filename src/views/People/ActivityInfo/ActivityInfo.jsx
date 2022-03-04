@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import dateFormat from "dateformat";
 import styled from "styled-components";
 import { getColor } from "../../../_starter/theme/theme";
 import { default as ChevronSmDownIcon } from "../../../_starter/shared/Icons/ChevronSmDown";
@@ -9,7 +10,9 @@ import { default as PaperPlaneIcon } from "../../../_starter/shared/Icons/PaperP
 import { default as ReplyIcon } from "../../../_starter/shared/Icons/Reply";
 import { default as RocketIcon } from "../../../_starter/shared/Icons/Rocket";
 import { default as BadgeIcon } from "../../../_starter/shared/Icons/Badge";
-import { pastActivitiesUrl, upcommingActivitiesUrl} from "../../../_starter/shared/API/baseUrls";
+import { default as EyeIcon } from "../../../_starter/shared/Icons/Eye";
+import { default as ClickIcon } from "../../../_starter/shared/Icons/Click";
+import { pastActivitiesUrl, upcommingActivitiesUrl } from "../../../_starter/shared/API/baseUrls";
 
 const ActivityDetailButtons = styled.div`
   display: flex;
@@ -87,30 +90,52 @@ const LogActivityLink = styled.a`
   color: ${getColor('blue')};
 `;
 
+const ActivityItem = styled.div`
+  display: flex;
+`;
+
+const OvalWrapper = styled.div`
+  width: 32px;
+  height: 32px;
+  left: 402px;
+  top: 349px;
+
+  text-align: center;
+  background: #17BBB6;
+  mix-blend-mode: normal;
+  opacity: 0.1;
+  border-radius: 50%;
+  border: 2px solid #FFFFFF;
+`;
+
+const ActivityDetails = styled.div`
+    display: flex;
+`;
+
 function ActivityInfo() {
   const [active, setActive] = useState(0);
-  const [pastActivities,setPastActivities]=useState([]);
+  const [pastActivities, setPastActivities] = useState([]);
 
-  const fetchPastActivities=()=>{
+  const fetchPastActivities = () => {
     fetch(pastActivitiesUrl
-    ,{
-      headers : { 
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-       }
-    }
+      , {
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+      }
     )
-      .then(function(response){
+      .then(function (response) {
         return response.json();
       })
-      .then(function(myJson) {
+      .then(function (myJson) {
         setPastActivities(myJson)
       });
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     fetchPastActivities();
-  },[])
+  }, [])
 
   const handleClick = e => {
     const index = parseInt(e.target.id, 0);
@@ -118,7 +143,7 @@ function ActivityInfo() {
       setActive(index);
     }
   };
- 
+
   return (
     <ActivityContainer>
       <TabNav>
@@ -136,46 +161,137 @@ function ActivityInfo() {
             <BtnTitle>Activity</BtnTitle>
             <ChevronSmDownIcon />
           </ActivityDpwnBtn>
-          <LogActivityLink>
-            <PhoneIcon/>
+          <LogActivityLink role='button'>
+            <PhoneIcon />
             <BtnTitle>Log a Call</BtnTitle>
           </LogActivityLink>
-          <LogActivityLink>
-            <PlusIcon/>
+          <LogActivityLink role='button'>
+            <PlusIcon />
             <BtnTitle>Add a Note</BtnTitle>
           </LogActivityLink>
         </ActivityDetailButtons>
         <h3>Upcoming Activities</h3>
-          <p>Once actions are scheduled, they'll appear here</p>
+        <p>Once actions are scheduled, they'll appear here</p>
         <h3>Past Activities</h3>
         <div className='pastActivities'>
-          {pastActivities.data?.map(item => 
-            <div className='activityItem' key={item.id}>
-              {item.type === 'voicemail'? 
-                <div className='Icon'>
+          {pastActivities.data?.map(item =>
+            item.type === 'voicemail' ?
+              <ActivityItem key={item.id}>
+                <OvalWrapper>
                   <VoicemailIcon></VoicemailIcon>
-                </div>
-                : item.type === 'success' ?
-                  <BadgeIcon></BadgeIcon>
+                </OvalWrapper>
+                <ActivityDetails>
+                  <div>
+                    <p>Voicemail Received {dateFormat(item.dynamic_data.voicemail_duration, 'HH:mm:ss')}</p>
+                    <p>Gary Glover to {item.dynamic_data.user_name}</p> {/*TODO: replace Gary Glover with Display Name*/}
+                  </div>
+                  <div className='Date'>
+                    <div>{dateFormat(item.created_at, 'mmm dS, yyyy')}</div>
+                    <div>{dateFormat(item.created_at, 'HH:mm:ss')}</div>
+                  </div>
+                </ActivityDetails>
+              </ActivityItem>
+              : item.type === 'success' ?
+                <ActivityItem key={item.id}>
+                  <OvalWrapper>
+                    <BadgeIcon></BadgeIcon>
+                  </OvalWrapper>
+                  <ActivityDetails>
+                    <div>
+                      <p>Marked as Success</p>
+                      <p>{item.dynamic_data.user_name}</p>
+                    </div>
+                    <div className='Date'>
+                      <div>{dateFormat(item.created_at, 'mmm dS, yyyy')}</div>
+                      <div>{dateFormat(item.created_at, 'HH:mm:ss')}</div>
+                    </div>
+                  </ActivityDetails>
+                </ActivityItem>
                 : item.type === 'call' ?
-                  <PhoneIcon></PhoneIcon>
-                : item.type === 'sent_email' ?
-                  <PaperPlaneIcon></PaperPlaneIcon>
-                : item.type === 'email_reply' ?
-                  <ReplyIcon></ReplyIcon>
-                : <RocketIcon></RocketIcon>
-              }
-              <div className='activityDetails'>
-                <div>
-                  <p></p>
-                  <p></p>
-                </div>
-                <div>
-                  <div></div>
-                  <div></div>
-                </div>
-              </div>
-            </div>
+                  <ActivityItem key={item.id}>
+                    <OvalWrapper>
+                      <PhoneIcon></PhoneIcon>
+                    </OvalWrapper>
+                    <ActivityDetails>
+                      <div>
+                        <p>{item.static_data.sentiment}</p>
+                        <p>
+                          <label>{item.dynamic_data.user_name} with {item.dynamic_data.phone_number}</label>
+                        </p>
+                      </div>
+                      <div className='Date'>
+                        <div>{dateFormat(item.created_at, 'mmm dS, yyyy')}</div>
+                        <div>{dateFormat(item.created_at, 'HH:mm:ss')}</div>
+                      </div>
+                    </ActivityDetails>
+                  </ActivityItem>
+                  : item.type === 'sent_email' ?
+                    <ActivityItem key={item.id}>
+                      <OvalWrapper>
+                        <PaperPlaneIcon></PaperPlaneIcon>
+                      </OvalWrapper>
+                      <ActivityDetails>
+                        <div>
+                          <label>{item.static_data.subject}</label>
+                          <p>
+                            <label>{item.dynamic_data.user_name} | </label>
+                            <EyeIcon></EyeIcon>
+                            <label>{item.dynamic_data.counts.views}</label>
+                            <ClickIcon></ClickIcon>
+                            <label>{item.dynamic_data.counts.clicks}</label>
+                            <ReplyIcon></ReplyIcon>
+                            <label>{item.dynamic_data.counts.replies}</label>
+                          </p>
+                        </div>
+                        <div className='Date'>
+                          <div>{dateFormat(item.created_at, 'mmm dS, yyyy')}</div>
+                          <div>{dateFormat(item.created_at, 'HH:mm:ss')}</div>
+                        </div>
+                      </ActivityDetails>
+                    </ActivityItem>
+                    : item.type === 'email_reply' ?
+                      <ActivityItem key={item.id}>
+                        <OvalWrapper>
+                          <ReplyIcon></ReplyIcon>
+                        </OvalWrapper>
+                        <ActivityDetails>
+                          <div>
+                            <p>
+                              <label>RE: {item.static_data.in_reply_to_subject} </label>
+                              <label>{item.static_data.body}</label>
+                            </p>
+                            <p>
+                              <label>{item.dynamic_data.user_name} | </label>
+                              <EyeIcon></EyeIcon>
+                              <label>{item.dynamic_data.counts.views}</label>
+                              <ClickIcon></ClickIcon>
+                              <label>{item.dynamic_data.counts.clicks}</label>
+                              <ReplyIcon></ReplyIcon>
+                              <label>{item.dynamic_data.counts.replies}</label>
+                            </p>
+                          </div>
+                          <div className='Date'>
+                          <div>{dateFormat(item.created_at, 'mmm dS, yyyy')}</div>
+                          <div>{dateFormat(item.created_at, 'HH:mm:ss')}</div>
+                          </div>
+                        </ActivityDetails>
+                      </ActivityItem>
+                      :
+                      <ActivityItem key={item.id}>
+                        <OvalWrapper>
+                          <RocketIcon></RocketIcon>
+                        </OvalWrapper>
+                        <ActivityDetails>
+                          <div>
+                            <p>Added to Cadence <label>{item.dynamic_data.cadence_name}</label></p>
+                            <p></p>
+                          </div>
+                          <div className='Date'>
+                          <div>{dateFormat(item.created_at, 'mmm dS, yyyy')}</div>
+                          <div>{dateFormat(item.created_at, 'HH:mm:ss')}</div>
+                          </div>
+                        </ActivityDetails>
+                      </ActivityItem>
           )}
         </div>
         <div>

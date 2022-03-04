@@ -43,14 +43,19 @@ const LgBussinesCard =  styled.div `
 const BussinessCardHeader = styled.div`
   height: 32px;
   border-radius: 0px;
+  border: 1px solid #E5E5E5;
 `;
 const BusinessCardBody = styled.div`
   height: 134px;
   border-radius: 0px;
+  text-align: center;
+  border-top: 0;
+  border: 1px solid #E5E5E5;
 `;
 const SocialIcons = styled.div `
   display: flex;
   height: 24px;
+  justify-content: center;
   .CloudIcon: {
     background: ${getColor('blueLight')};
   }
