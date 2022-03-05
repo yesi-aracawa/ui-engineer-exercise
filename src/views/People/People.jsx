@@ -15,7 +15,7 @@ const PeopleNav = styled.div`
   box-shadow: inset 0px -1px 0px ${getColor('greyLightest')};
 `;
 const PeopleBoard = styled.div`
-  height: 100%;
+  height: fit-content;
   width: 100%;
   background-color: ${getColor('greyLightest')};
 `;
@@ -24,6 +24,7 @@ const PageTitle = styled.div`
   height: 18px;
   left: 0px;
   top: calc(50% - 18px/2);
+  position: relative;
 
   font-family: "Proxima Nova";
   font-style: normal;
@@ -34,6 +35,7 @@ const PageTitle = styled.div`
 `;
 const PeopleBoardSections =styled.div`
   display: flex;
+  position: relative;
 `;
 
 function People() {

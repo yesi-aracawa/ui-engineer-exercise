@@ -30,7 +30,7 @@ const XsmAdditionalInfoCard = styled.div `
   margin: 0 0 10px 0;
 `;
 const AditionalInfoContainer = styled.div`
-  width: 372px;
+  width: 25%;
   height: 100%;
   margin: 0 10px 10px 10px;
 `;

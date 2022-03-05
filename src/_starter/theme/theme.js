@@ -56,6 +56,7 @@ export const theme = {
     vendorTwitterRetweet: "#17bf63",
     vendorTwitterBlue: "#1da1f2",
     vendorLinkedInBlue: "#0077b5",
+    vendorCloudBlue: "#049BE5",
     vendorSalesforceBlue: "#1589ee",
 
     // background colors
