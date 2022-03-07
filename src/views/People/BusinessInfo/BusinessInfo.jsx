@@ -43,6 +43,7 @@ const BussinessCardHeader = styled.div`
   height: 32px;
   border-radius: 0px;
   border: 1px solid ${getColor('greyLightest')};
+  justify-content: space-between;
 `;
 const BusinessCardBody = styled.div`
   height: 134px;

@@ -1,13 +1,21 @@
 import React from 'react';
 import dateFormat from "dateformat";
+import styled from "styled-components";
+import { getColor } from "../../../_starter/theme/theme";
+
+const DateContainer = styled.p`
+  display: block;
+  margin: 10px;
+  text-align: end;
+`;
 
 function ItemDate ({date}) {
     return (
-        <div className='Date'>
+        <DateContainer>
           <label>{dateFormat(date, 'mmm dS, yyyy')}</label>
           <br/>
           <label>{dateFormat(date, 'HH:mm:ss')}</label>
-        </div>
+        </DateContainer>
       );
 }
 export const ItemTime = (time) => dateFormat(time, 'HH:mm:ss');

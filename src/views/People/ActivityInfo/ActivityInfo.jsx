@@ -28,6 +28,7 @@ const ActivityContainer = styled.div`
   width: 55%;
   height: 1095px;
   margin: 0 0 10px 0px;
+  text-align: center;
 
 
   background: ${getColor('white')};
