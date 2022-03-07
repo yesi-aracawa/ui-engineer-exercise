@@ -12,25 +12,37 @@ const TealIconWrapper = styled.div`
   width: 32px;
   height: 32px;
   margin-right: 10px;
+  align-items: center;
   border-radius: 50%;
   border: 2px solid ${getColor('white')};
-  background: ${getColor('tealLightest')}; 
-`;
+  background: ${getColor('tealLightest')}1F;
+  color: ${getColor('teal')};
+  display: flex;
+  justify-content: center;
+  `;
 const IndigoIconWrapper = styled.div`
   width: 32px;
   height: 32px;
   margin-right: 10px;
+  align-items: center;
   border-radius: 50%;
   border: 2px solid ${getColor('white')};
-  background: ${getColor('indigoLightest')}; 
+  background-color: ${getColor('indigoLightest')}1F; 
+  color: ${getColor('indigo')};
+  display: flex;
+  justify-content: center;
 `;
 const BlueIconWrapper = styled.div`
   width: 32px;
   height: 32px;
   margin-right: 10px;
+  align-items: center;
   border-radius: 50%;
   border: 2px solid ${getColor('white')};
-  background: ${getColor('blueLightest')}; 
+  background: ${getColor('blueLightest')};
+  color: ${getColor('blue')};
+  display: flex;
+  justify-content: center;
 `;
 
 function ItemIcon({ type }) {

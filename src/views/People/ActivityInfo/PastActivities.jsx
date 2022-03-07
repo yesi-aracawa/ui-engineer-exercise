@@ -17,6 +17,7 @@ const ActivityDetails = styled.div`
   justify-content: space-between;
 `;
 const ActivityItem = styled.li`
+  align-items: center;
   display: flex;
   margin-bottom: 8px;
 `;

@@ -7,6 +7,12 @@ const DateContainer = styled.p`
   display: block;
   margin: 10px;
   text-align: end;
+  font-family: "proxima-nova";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 12px;
+  color: ${getColor('grey')};
 `;
 
 function ItemDate ({date}) {

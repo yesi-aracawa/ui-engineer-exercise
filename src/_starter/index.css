@@ -77,6 +77,24 @@ code {
 @font-face {
   font-family: "proxima-nova";
   font-style: normal;
+  font-weight: 500;
+
+  src: url("./assets/fonts/proxima-nova-500.woff2") format("woff2"),
+    url("./assets/fonts/proxima-nova-500.woff") format("woff");
+}
+
+@font-face {
+  font-family: "proxima-nova";
+  font-style: italic;
+  font-weight: 500;
+  
+  src: url("./assets/fonts/proxima-nova-500-italic.woff2") format("woff2"),
+    url("./assets/fonts/proxima-nova-500-italic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "proxima-nova";
+  font-style: normal;
   font-weight: 600;
 
   src: url("./assets/fonts/proxima-nova-600.woff2") format("woff2"),

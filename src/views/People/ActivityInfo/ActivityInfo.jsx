@@ -11,6 +11,9 @@ const TabNav = styled.div`
   box-sizing: border-box;
   background: ${getColor('white')};
   border: 1px solid ${getColor('greyLightest')};
+  font-style: normal;
+  font-size: 14px;
+  line-height: 16px;
 `;
 const TabItem = styled.div`
   padding: 10px;
@@ -18,6 +21,9 @@ const TabItem = styled.div`
   transition: 0.3s;
   border-bottom: 3px solid ${(props) => (
     props.active ? `${getColor('blueLight')}` : `${getColor('white')}`
+  )};
+  font-weight: ${(props) => (
+    props.active ? '600' : 'normal'
   )};
   background-color: ${getColor('white')};
 `;
@@ -28,9 +34,6 @@ const ActivityContainer = styled.div`
   width: 55%;
   height: 1095px;
   margin: 0 0 10px 0px;
-  text-align: center;
-
-
   background: ${getColor('white')};
   border: 1px solid ${getColor('greyLightest')};
   box-sizing: border-box;

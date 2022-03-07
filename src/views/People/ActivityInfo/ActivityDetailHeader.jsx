@@ -7,32 +7,34 @@ import { getColor } from "../../../_starter/theme/theme";
 
 const ActivityDetailButtons = styled.div`
   display: flex;
+  justify-content: space-between;
 `;
-const ActivityDpwnBtn = styled.div`
+const ActivityDpwnBtn = styled.button`
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 88px;
+  width: 96px;
   height: 32px;
   padding: 8px 12px;
-  border-radius: 4px;
-  margin: 16px 10px 16px 20px;
   color: ${getColor('greyDarkest')};
   background: ${getColor('white')};
+  border-radius: 4px;
   border: 1px solid ${getColor('greyLightest')};
+  margin: 16px 10px 16px 20px;
 `;
-const PersonDropdownBtn = styled.div`
+const PersonDropdownBtn = styled.button`
   display: flex;
   flex-direction: row;
   align-items: center;
   
-  width: 88px;
+  width: 96px;
   height: 32px;
   padding: 8px 12px;
   border-radius: 4px;
   margin: 16px 10px 16px 20px;
   color: ${getColor('white')};
   background: ${getColor('blue')};
+  border: 1px solid ${getColor('greyLightest')};
 `;
 const BtnTitle = styled.label`
   margin: 0 8px;
@@ -40,7 +42,7 @@ const BtnTitle = styled.label`
 const LogActivityLink = styled.a`
   line-height: 16px;
   margin: auto 10px;
-  font-family: Proxima Nova;
+  font-family: "proxima-nova";
   font-style: normal;
   font-weight: 600;
   font-size: 14px;

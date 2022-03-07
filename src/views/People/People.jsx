@@ -23,14 +23,14 @@ const PageTitle = styled.div`
   width: 62px;
   height: 18px;
   left: 0px;
-  top: calc(50% - 18px/2);
+  top: calc(50% - 20px/2);
   position: relative;
 
-  font-family: "Proxima Nova";
+  font-family: "proxima-nova";
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
-  line-height: 18px;
+  line-height: 20px;
   color: ${getColor('greyDarkest')};
 `;
 const PeopleBoardSections =styled.div`

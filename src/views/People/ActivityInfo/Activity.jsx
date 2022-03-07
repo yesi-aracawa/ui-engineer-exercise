@@ -2,22 +2,46 @@ import React from 'react';
 import PastActivities from "./PastActivities";
 import ActivityDetailHeader from "./ActivityDetailHeader";
 import styled from "styled-components";
+import { getColor } from "../../../_starter/theme/theme";
 
-const PastActivitiesContainer = styled.ul`
+
+const ActivitiesList = styled.ul`
   list-style-type: none;
   padding-inline-start: 20px;
   padding-inline-end: 20px;
 `;
+const Title = styled.p`
+  width: fit-content;
+  height: 18px;
+  margin-bottom: 14px;
+  font-family: "proxima-nova";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 18px;
+  color: ${getColor('greyDark')};
+`;
+const Message = styled.p`
+  width: 100%;
+  text-align: center;
+  font-family: "proxima-nova";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  color: ${getColor('greyDark')};
+`;
 
 function Activity({ pastActivities }) {
-  console.log(pastActivities)
   return (
     <>
-      <ActivityDetailHeader/>
-      <h3>Upcoming Activities</h3>
-      <p>Once actions are scheduled, they'll appear here</p>{/*TODO: Add condition for calling upcomming act*/}
-      <h3>Past Activities</h3>
-      <PastActivitiesContainer className='pastActivities'>
+      <ActivityDetailHeader />
+      <ActivitiesList>
+        <Title>Upcoming Activities</Title>
+        <Message>Once actions are scheduled, they'll appear here</Message>{/*TODO: Add condition for calling upcomming act*/}
+      </ActivitiesList>
+      <ActivitiesList>
+        <Title>Past Activities</Title>
         {pastActivities.data?.map(item =>
           <PastActivities
             key={item.id}
@@ -27,7 +51,7 @@ function Activity({ pastActivities }) {
             static_data={item.static_data}
           />
         )}
-      </PastActivitiesContainer>
+      </ActivitiesList>
     </>
   );
 }
