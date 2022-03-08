@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import Activity from "./Activity";
+import Activity from "./Activity/Activity";
 import styled from "styled-components";
 import { getColor } from "../../../_starter/theme/theme";
 import {PeopleAPI} from "../../../_starter/shared/API/PeopleAPI";
+import Traking from './Traking/Traking';
+import Reminders from './Reminders/Reminders';
 
 const TabNav = styled.div`
   width: 100%;
@@ -71,9 +73,12 @@ function ActivityInfo() {
           pastActivities={pastActivities}
         />
       </TabPanel>
-      <TabPanel active={active === 1} ></TabPanel>
-      <TabPanel active={active === 2} ></TabPanel>
-
+      <TabPanel active={active === 1} >
+        <Traking></Traking>
+      </TabPanel>
+      <TabPanel active={active === 2} >
+        <Reminders></Reminders>
+      </TabPanel>
     </ActivityContainer>
   );
 

@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from "styled-components";
-import { getColor } from "../../../_starter/theme/theme";
-import { default as PhoneIcon } from "../../../_starter/shared/Icons/Phone";
-import { default as VoicemailIcon } from "../../../_starter/shared/Icons/Voicemail";
-import { default as PaperPlaneIcon } from "../../../_starter/shared/Icons/PaperPlane";
-import { default as ReplyIcon } from "../../../_starter/shared/Icons/Reply";
-import { default as RocketIcon } from "../../../_starter/shared/Icons/Rocket";
-import { default as BadgeIcon } from "../../../_starter/shared/Icons/Badge";
+import { getColor } from "../../../../_starter/theme/theme";
+import { default as PhoneIcon } from "../../../../_starter/shared/Icons/Phone";
+import { default as VoicemailIcon } from "../../../../_starter/shared/Icons/Voicemail";
+import { default as PaperPlaneIcon } from "../../../../_starter/shared/Icons/PaperPlane";
+import { default as ReplyIcon } from "../../../../_starter/shared/Icons/Reply";
+import { default as RocketIcon } from "../../../../_starter/shared/Icons/Rocket";
+import { default as BadgeIcon } from "../../../../_starter/shared/Icons/Badge";
 
 const TealIconWrapper = styled.div`
   width: 32px;

@@ -1,9 +1,9 @@
 import React from 'react';
-import { default as EyeIcon } from "../../../_starter/shared/Icons/Eye";
-import { default as ClickIcon } from "../../../_starter/shared/Icons/Click";
-import { default as ReplyIcon } from "../../../_starter/shared/Icons/Reply";
+import { default as EyeIcon } from "../../../../_starter/shared/Icons/Eye";
+import { default as ClickIcon } from "../../../../_starter/shared/Icons/Click";
+import { default as ReplyIcon } from "../../../../_starter/shared/Icons/Reply";
 import styled from "styled-components";
-import { getColor } from "../../../_starter/theme/theme";
+import { getColor } from "../../../../_starter/theme/theme";
 
 const IconWrapper = styled.label`
   width: 15px;
