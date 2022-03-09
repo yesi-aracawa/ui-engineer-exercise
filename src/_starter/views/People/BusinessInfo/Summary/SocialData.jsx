@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from "styled-components";
-import { getColor } from "../../../../_starter/theme/theme";
-import { default as CloudIcon } from "../../../../_starter/shared/Icons/Cloud";
-import { default as LinkedInIcon } from "../../../../_starter/shared/Icons/LinkedIn";
-import { default as TwitterIcon } from "../../../../_starter/shared/Icons/Twitter";
-import { default as LinkIcon } from "../../../../_starter/shared/Icons/Link";
+import { getColor } from "../../../../theme/theme";
+import { default as CloudIcon } from "../../../../shared/Icons/Cloud";
+import { default as LinkedInIcon } from "../../../../shared/Icons/LinkedIn";
+import { default as TwitterIcon } from "../../../../shared/Icons/Twitter";
+import { default as LinkIcon } from "../../../../shared/Icons/Link";
 
 const SocialIcons = styled.label`
   display: flex;

@@ -1,5 +1,5 @@
 import React from "react";
-import People from './views/People';
+import People from './_starter/views/People';
 
 export const App = () => {
   return (<>

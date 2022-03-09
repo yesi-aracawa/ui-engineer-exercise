@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import SummaryBusiness from "./Summary/SummaryBusiness"
 import styled from "styled-components";
-import { getColor } from "../../../_starter/theme/theme";
-import { PeopleAPI } from "../../../_starter/shared/API/PeopleAPI";
+import { getColor } from "../../../theme/theme";
+import { PeopleAPI } from "../../../shared/API/PeopleAPI";
 
 const BussinessCard = styled.div`
   height: 166px;

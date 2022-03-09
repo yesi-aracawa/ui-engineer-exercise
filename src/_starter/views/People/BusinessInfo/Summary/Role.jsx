@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import { getColor } from "../../../../_starter/theme/theme";
+import { getColor } from "../../../../theme/theme";
 
 const FacebookLink = styled.a`
   color: ${getColor('blue')};

@@ -3,7 +3,7 @@ import ItemDate from "./ItemDate";
 import ItemIcon from "./ItemIcon";
 import ItemDescription from "./ItemDescription";
 import styled from "styled-components";
-import { getColor } from "../../../../_starter/theme/theme";
+import { getColor } from "../../../../theme/theme";
 
 const ActivityDetails = styled.div`
   display: flex;

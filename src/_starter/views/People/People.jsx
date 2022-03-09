@@ -2,7 +2,7 @@ import React from 'react';
 import ActivityInfo from './ActivityInfo';
 import BusinessInfo from './BusinessInfo';
 import AdditionalInfo from './AdditionalInfo';
-import { getColor } from "../../_starter/theme/theme";
+import { getColor } from "../../theme/theme";
 import styled from "styled-components";
 
 const PeopleNav = styled.div`

@@ -1,7 +1,7 @@
 import React from 'react';
 import dateFormat from "dateformat";
 import styled from "styled-components";
-import { getColor } from "../../../../_starter/theme/theme";
+import { getColor } from "../../../../theme/theme";
 
 const DateContainer = styled.p`
   display: block;

@@ -2,7 +2,7 @@ import React from 'react';
 import PastActivities from "./PastActivities";
 import ActivityDetailHeader from "./ActivityHeader";
 import styled from "styled-components";
-import { getColor } from "../../../../_starter/theme/theme";
+import { getColor } from "../../../../theme/theme";
 
 
 const ActivitiesList = styled.ul`

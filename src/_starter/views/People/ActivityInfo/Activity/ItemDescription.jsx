@@ -2,7 +2,7 @@ import React from 'react';
 import { ItemTime } from "./ItemDate";
 import ItemStatistics from "./ItemStatistics";
 import styled from "styled-components";
-import { getColor } from "../../../../_starter/theme/theme";
+import { getColor } from "../../../../theme/theme";
 
 const Description = styled.p`
   display: grid;

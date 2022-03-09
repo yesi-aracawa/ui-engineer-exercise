@@ -1,9 +1,9 @@
 import React from 'react';
-import { default as ChevronSmDownIcon } from "../../../../_starter/shared/Icons/ChevronSmDown";
-import { default as PhoneIcon } from "../../../../_starter/shared/Icons/Phone";
-import { default as PlusIcon } from "../../../../_starter/shared/Icons/Plus";
+import { default as ChevronSmDownIcon } from "../../../../shared/Icons/ChevronSmDown";
+import { default as PhoneIcon } from "../../../../shared/Icons/Phone";
+import { default as PlusIcon } from "../../../../shared/Icons/Plus";
 import styled from "styled-components";
-import { getColor } from "../../../../_starter/theme/theme";
+import { getColor } from "../../../../theme/theme";
 
 const ActivityDetailButtons = styled.div`
   display: flex;

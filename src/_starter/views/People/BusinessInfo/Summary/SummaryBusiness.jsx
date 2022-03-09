@@ -2,9 +2,9 @@ import React from 'react';
 import SocialData from "./SocialData";
 import Role from "./Role";
 import styled from "styled-components";
-import { getColor } from "../../../../_starter/theme/theme";
-import { default as StarOutlinedIcon } from "../../../../_starter/shared/Icons/StarOutlined";
-import { default as EllipsisHorizontalIcon } from "../../../../_starter/shared/Icons/EllipsisHorizontal";
+import { getColor } from "../../../../theme/theme";
+import { default as StarOutlinedIcon } from "../../../../shared/Icons/StarOutlined";
+import { default as EllipsisHorizontalIcon } from "../../../../shared/Icons/EllipsisHorizontal";
 
 const BussinessCardHeader = styled.div`
   display: flex;
