@@ -43,7 +43,7 @@ function BusinessInfo() {
   const peopleAPI = PeopleAPI();
 
   const fetchPeopleData = async () => {
-    peopleAPI.getPeopleData().then(activities => setBusinessInfo(activities));
+    peopleAPI.getPeopleData().then(data => setBusinessInfo(data));
   }
 
   useEffect(() => {
