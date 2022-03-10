@@ -16,7 +16,7 @@ const LeftNavContainer = styled.div`
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  height: 100%;
+  height: 1165px;
   background-color: ${getColor("indigoDark")};
 `;
 

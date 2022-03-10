@@ -1,4 +1,4 @@
-import { React } from "react";
+import React from 'react';
 import { LeftNav } from "./Navigation/LeftNav/LeftNav";
 import { TopNav } from "./Navigation/TopNav/TopNav";
 import { App } from "../App";
