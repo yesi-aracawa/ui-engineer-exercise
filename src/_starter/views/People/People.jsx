@@ -4,6 +4,7 @@ import BusinessInfo from './BusinessInfo';
 import AdditionalInfo from './AdditionalInfo';
 import { getColor } from "../../theme/theme";
 import styled from "styled-components";
+import { Helmet } from "react-helmet";
 
 const PeopleNav = styled.div`
   height: 50px;
@@ -17,6 +18,7 @@ const PeopleNav = styled.div`
 const PeopleBoard = styled.div`
   height: fit-content;
   width: 100%;
+  min-width: 850px;
   background-color: ${getColor('greyLightest')};
 `;
 const PageTitle = styled.div`
@@ -33,21 +35,35 @@ const PageTitle = styled.div`
   line-height: 20px;
   color: ${getColor('greyDarkest')};
 `;
-const PeopleBoardSections =styled.div`
+const PeopleBoardSections = styled.div`
   display: flex;
   position: relative;
 `;
+const Meta = {
+  meta: {
+    charset: 'utf-8',
+    name: "viewport",
+    content:"width=device-width",
+    initialScale: 1, 
+    maximumScale: 5.0,
+    minimumScale: 1
+  }
+}
 
 function People() {
   return (
     <PeopleBoard>
+      <Helmet>
+        <meta name="viewport" content="width=device-width, 
+       initial-scale=1, maximum-scale=5.0, minimum-scale=1"/>
+      </Helmet>
       <PeopleNav>
         <PageTitle>People</PageTitle>
       </PeopleNav>
       <PeopleBoardSections>
-        <BusinessInfo/>
-        <ActivityInfo/>
-        <AdditionalInfo/>
+        <BusinessInfo />
+        <ActivityInfo />
+        <AdditionalInfo />
       </PeopleBoardSections>
     </PeopleBoard>
   );

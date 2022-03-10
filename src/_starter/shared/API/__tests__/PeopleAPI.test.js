@@ -1,4 +1,3 @@
-import { peopleUrl, pastActivitiesUrl, upcomingActivitiesUrl } from "../initConfig";
 import { PeopleAPI } from "../PeopleAPI";
 import { renderHook } from '@testing-library/react-hooks';
 import "regenerator-runtime/runtime.js";

@@ -8,6 +8,9 @@ import { getColor } from "../../../../theme/theme";
 const ActivityDetailButtons = styled.div`
   display: flex;
   justify-content: space-between;
+  @media (max-width: 1014px) {
+    display: block;
+  }
 `;
 const ActivityDpwnBtn = styled.button`
   display: flex;

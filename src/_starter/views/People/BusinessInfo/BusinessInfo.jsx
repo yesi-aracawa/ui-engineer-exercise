@@ -11,6 +11,9 @@ const BussinessCard = styled.div`
   box-sizing: border-box;
   border-radius: 0px;
   margin: 0 0 10px 0;
+  @media (max-width: 700px) {
+    font-size: calc(10px + 2vw);
+  }
 `;
 const MdBussinesCard = styled.div`
   height: 238px;
@@ -36,6 +39,15 @@ const BusinessContainer = styled.div`
   height: 100%;
   width: 20%;
   margin: 0 10px 10px 10px;
+  @media (max-width: 700px) {
+    font-size: calc(7px + 2vw);
+  }
+  @media (min-width: 301px) and (max-width: 700px) {
+    font-size: calc(7px + 2vw);
+  }
+  @media (max-width: 300px) {
+    font-size: 12px;
+  }
 `;
 
 function BusinessInfo() {
