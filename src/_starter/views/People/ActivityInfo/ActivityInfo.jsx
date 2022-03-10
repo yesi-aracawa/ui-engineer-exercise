@@ -44,14 +44,9 @@ const ActivityContainer = styled.div`
 function ActivityInfo() {
   const [active, setActive] = useState(0);
   const [pastActivities, setPastActivities] = useState([]);
-  const peopleAPI = PeopleAPI();
-
-  const fetchPastActivities = async () => {
-    peopleAPI.getPastActivities().then(activities => setPastActivities(activities));
-  }
-
+  
   useEffect(() => {
-    fetchPastActivities();
+    PeopleAPI().getPastActivities().then(activities => setPastActivities(activities));
   }, [])
 
   const handleClick = e => {

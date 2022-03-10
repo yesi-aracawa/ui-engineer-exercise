@@ -52,14 +52,8 @@ const BusinessContainer = styled.div`
 
 function BusinessInfo() {
   const [businessInfo, setBusinessInfo] = useState([]);
-  const peopleAPI = PeopleAPI();
-
-  const fetchPeopleData = async () => {
-    peopleAPI.getPeopleData().then(data => setBusinessInfo(data));
-  }
-
   useEffect(() => {
-    fetchPeopleData();
+    PeopleAPI().getPeopleData().then(data => setBusinessInfo(data));
   }, [])
 
   return (
