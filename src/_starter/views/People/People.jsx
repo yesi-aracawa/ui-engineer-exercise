@@ -39,16 +39,7 @@ const PeopleBoardSections = styled.div`
   display: flex;
   position: relative;
 `;
-const Meta = {
-  meta: {
-    charset: 'utf-8',
-    name: "viewport",
-    content:"width=device-width",
-    initialScale: 1, 
-    maximumScale: 5.0,
-    minimumScale: 1
-  }
-}
+
 
 function People() {
   return (
